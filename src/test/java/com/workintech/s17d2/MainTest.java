@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.workintech.s17d2.model.*;
 import com.workintech.s17d2.rest.DeveloperController;
 import com.workintech.s17d2.tax.DeveloperTax;
+import com.workintech.s17d2.tax.Taxable;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,8 @@ class MainTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @MockBean
-    private DeveloperTax mockDeveloperTaxForController;
+    @MockBean(name = "mockDeveloperTaxForController")
+    private Taxable taxable;
     @Test
     @DisplayName("Test Developer Creation")
     void testDeveloperCreation() {
